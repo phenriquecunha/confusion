@@ -1,26 +1,29 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, lastValueFrom, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { baseURL } from '../shared/baseurl';
+import { Dish } from '../shared/dish';
 import { DISHES } from '../shared/dishes';
 @Injectable({
   providedIn: 'root'
 })
 export class DishService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getDishes(){
-    return of(DISHES)
+    return this.http.get<Dish[]>(`${baseURL}/dishes`)
   }
 
   getDish(id: string){
-    return of(DISHES.filter(dish => dish.id == id)[0])
+    return this.http.get<Dish>(`${baseURL}/dishes/${id}`)
   }
 
   getFeaturedDish(){
-    return of(DISHES.filter(dish => dish.featured)[0])
+    return this.http.get<Dish>(`${baseURL}/dishes?featured=true`).pipe(map(dishes  => dishes[0]))
   }
 
   getDishIds(){
-    return of(DISHES.map(dish => dish.id))
+    return this.getDishes().pipe(map((dishes => dishes.map(dish => dish.id))))
   }
 }

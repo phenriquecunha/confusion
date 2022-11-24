@@ -30,6 +30,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RateComponent } from './rate/rate.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { baseURL } from './shared/baseurl';
+import { ObserversModule } from '@angular/cdk/observers';
 
 @NgModule({
   declarations: [
@@ -64,8 +67,10 @@ import { MatSliderModule } from '@angular/material/slider';
     MatSelectModule,
     MatSlideToggleModule,
     MatSliderModule,
+    HttpClientModule,
+    ObserversModule
   ],
-  providers: [DishService, LeadersService],
+  providers: [DishService, LeadersService, {provide: 'BaseURL', useValue: baseURL}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

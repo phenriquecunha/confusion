@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom, of } from 'rxjs';
 import { PROMOTIONS } from '../shared/promotions';
@@ -7,7 +8,7 @@ import { PROMOTIONS } from '../shared/promotions';
 })
 export class PromotionService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getPromotions(){
     return of(PROMOTIONS)

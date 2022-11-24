@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { DISHES } from '../shared/dishes';
 import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
@@ -19,7 +19,8 @@ export class DishdetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private dishService: DishService
+    private dishService: DishService,
+    @Inject('BaseURL') public BaseURL
   ) {}
 
   ngOnInit(): void {

@@ -1,0 +1,52 @@
+
+<mat-grid-list cols="2" *ngIf="selectedDish">
+  <mat-grid-tile>
+    <div>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h3>{{ selectedDish.name | uppercase }}</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="{{ selectedDish.image }}"
+          alt="{{ selectedDish.name }}"
+        />
+        <mat-card-content>
+          <p>{{ selectedDish.description }}</p>
+          <mat-card-actions>
+            <button mat-button [routerLink]="['/dishdetail', prev]">◀</button>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+            <button mat-button routerLink="/menu">MENU</button>
+            <button mat-button [routerLink]="['/dishdetail', next]">▶</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <ul>
+      <h1>Comments</h1>
+      <ul *ngFor="let comment of DISH[0].comments">
+        comment:
+        {{
+          comment.comment
+        }}<br />
+        {{
+          comment.rating
+        }}
+        Stars<br />
+        --
+        {{
+          comment.author
+        }}
+        {{
+          comment.date | date
+        }}<br /><br />
+      </ul>
+      <app-rate></app-rate>
+    </ul>
+  </mat-grid-tile>
+</mat-grid-list>

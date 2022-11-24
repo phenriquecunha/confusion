@@ -1,0 +1,23 @@
+<form novalidate>
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="John" autocomplete="disabled">
+    </mat-form-field>
+    <br>
+    <mat-slider
+        class="slider"
+        color="primary"
+        [max]="5"
+        [min]="1"
+        [step]="1"
+        [thumbLabel]="true"
+        [tickInterval]="1"
+        >
+    </mat-slider>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Your comment</mat-label>
+        <textarea matInput rows="6"></textarea>
+    </mat-form-field>
+    <button mat-raised-button>Submit</button>
+</form>

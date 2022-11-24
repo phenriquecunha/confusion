@@ -1,0 +1,21 @@
+.container div div{
+    margin: 10px;
+}
+.linfo{
+    display: flex;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+h3{
+    margin-left: 11px;
+}
+form{
+    height: 370px;
+    display: flex;
+    margin-left: 11px;
+    flex-direction: column;
+    align-items: baseline;
+    flex-wrap: wrap;
+}

@@ -1,6 +1,5 @@
-
 <mat-grid-list cols="2" *ngIf="selectedDish">
-  <mat-grid-tile>
+  <mat-grid-tile [@visibility]="visibility">
     <div>
       <mat-card>
         <mat-card-header>
@@ -26,7 +25,7 @@
       </mat-card>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile>
+  <mat-grid-tile [@visibility]="visibility">
     <ul>
       <h1>Comments</h1>
       <ul *ngFor="let comment of DISH[0].comments">

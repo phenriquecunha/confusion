@@ -33,6 +33,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { baseURL } from './shared/baseurl';
 import { ObserversModule } from '@angular/cdk/observers';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ObserversModule } from '@angular/cdk/observers';
     HomeComponent,
     LoginComponent,
     RateComponent,
+    HighlightDirective,
   ],
   imports: [
     AppRoutingModule,
